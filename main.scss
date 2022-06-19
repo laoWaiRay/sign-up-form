@@ -1,0 +1,168 @@
+$color-light: rgb(232,230,227);
+$color-dark: rgb(49,52,54);
+$color-primary: rgb(233, 130, 39);
+
+html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-padding: 0;
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #222;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 2rem;
+}
+
+.hero{
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 60vw;
+
+        &::after{
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to bottom right, $color-primary, #000);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 40%;
+    }
+}
+
+.hero__video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 100%;
+}
+
+.content{
+    font-size: 1.5rem;
+    height: 100vh;
+    width: 40vw;
+    background-color: rgba(0, 0, 0, .85);
+    position: absolute;
+    right: 0;
+    color: $color-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    width: 45rem;
+
+    &__group{
+        
+        &:not(:first-child){
+            margin-top: 2rem;
+        }
+    }
+
+    label{
+        display: block;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        
+    }
+
+    input{
+        display: block;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(34, 34, 34, 0.503);
+        border: 1px solid $color-dark;
+        font-family: inherit;
+        color: inherit;
+        font-size: inherit;
+        width: calc(100% - (1.5rem * 2));
+        padding: 1rem 1.5rem;
+        outline: none;
+
+        &:active,
+        &:focus{
+            border-color: $color-primary;
+        }
+    }
+
+    .btn-sign-up{
+        display: block;
+        margin: 0 auto;
+        margin-top: 4rem;
+        border: 1px solid $color-dark;
+        padding: 1.5rem;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: inherit;
+
+        &:hover{
+            border-color: $color-primary;
+            color: $color-primary;
+            cursor: pointer;
+        }
+    }
+}
+
+.header{
+    padding: 2rem;
+    user-select: none;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__primary{
+        font-size: 5rem;
+        letter-spacing: 4px;
+        margin-bottom: 1.5rem;
+        margin-left: 1px;
+
+        &:hover{
+            color: $color-primary;
+        }
+    }
+    &__secondary{
+        width: 100%;
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+}
+
+.log-in-message{
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+
+    .sign-in-link{
+        color: $color-primary;
+        text-decoration: none;
+        padding-bottom: 5px;
+        border-bottom: 2px solid $color-primary;
+
+    }
+}
+
+
+@media only screen and (max-width: 1360px){
+    html{
+        font-size: 49.5%;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    html{
+        font-size: 49.5%;
+    }
+}
