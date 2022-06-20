@@ -1,3 +1,45 @@
+:root {
+  --color-primary: #e98227;
+  --color-secondary: #33ff00;
+  --color-light: #e8e6e3;
+  --color-dark: #313436;
+}
+
+:root.night-mode {
+  --color-primary: #4700b3;
+  --color-secondary: #33ff00;
+  --color-light: #e8e6e3;
+  --color-dark: #313436;
+}
+:root.night-mode .panel {
+  border-color: #000;
+  animation: flickerAnimation 2s 1s steps(6, jump-both) forwards;
+}
+:root.night-mode .form, :root.night-mode .header {
+  color: var(--color-secondary);
+}
+:root.night-mode .sign-in-link {
+  color: var(--color-light);
+  border-bottom-color: var(--color-light);
+}
+:root.night-mode .sign-in-link:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+:root.night-mode .form__control {
+  background-color: rgba(34, 34, 34, 0.503);
+  border-color: var(--color-secondary);
+  font-family: inherit;
+  color: var(--color-light);
+  font-size: inherit;
+  width: calc(100% - 3rem);
+  padding: 1rem 1.5rem;
+  outline: none;
+}
+:root.night-mode .form__control:active, :root.night-mode .form__control:focus {
+  border-color: var(--color-primary);
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -25,7 +67,7 @@ body {
   content: "";
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to bottom right, #e98227, #000);
+  background-image: linear-gradient(to bottom right, var(--color-primary), #000);
   position: absolute;
   top: 0;
   left: 0;
@@ -46,12 +88,18 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   right: 0;
-  color: #e8e6e3;
+  color: var(--color-light);
   display: flex;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.panel {
+  border: 1px solid white;
+  padding: 2rem;
+  border-radius: 5px;
 }
 
 .form {
@@ -70,22 +118,22 @@ body {
   border: none;
   border-radius: 5px;
   background-color: rgba(34, 34, 34, 0.503);
-  border: 1px solid #313436;
+  border: 1px solid var(--color-dark);
   font-family: inherit;
-  color: #e8e6e3;
+  color: var(--color-light);
   font-size: inherit;
   width: calc(100% - 3rem);
   padding: 1rem 1.5rem;
   outline: none;
 }
 .form__control:active, .form__control:focus {
-  border-color: #e98227;
+  border-color: var(--color-primary);
 }
 .form .btn-sign-up {
   display: block;
   margin: 0 auto;
   margin-top: 4rem;
-  border: 1px solid #313436;
+  border: 1px solid var(--color-dark);
   padding: 1.5rem;
   border-radius: 5px;
   font-family: inherit;
@@ -95,13 +143,13 @@ body {
   outline: none;
 }
 .form .btn-sign-up:hover, .form .btn-sign-up:focus {
-  border-color: #e98227;
-  color: #e98227;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   cursor: pointer;
 }
 
 .header {
-  padding: 2rem;
+  margin: 0;
   user-select: none;
   line-height: 1.5;
   display: flex;
@@ -111,16 +159,17 @@ body {
 .header__primary {
   font-size: 5rem;
   letter-spacing: 4px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   margin-left: 1px;
 }
 .header__primary:hover {
-  color: #e98227;
+  color: var(--color-primary);
 }
 .header__secondary {
   width: 100%;
   font-size: 2rem;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
+  margin-bottom: 2rem;
 }
 
 .log-in-message {
@@ -128,51 +177,98 @@ body {
   text-align: center;
   margin-top: 2rem;
   font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 .log-in-message .sign-in-link {
-  color: #e98227;
+  color: var(--color-primary);
   text-decoration: none;
   padding-bottom: 5px;
-  border-bottom: 2px solid #e98227;
+  border-bottom: 2px solid var(--color-primary);
   outline: none;
 }
 .log-in-message .sign-in-link:hover, .log-in-message .sign-in-link:focus {
-  color: greenyellow;
-  border-bottom-color: greenyellow;
+  color: var(--color-secondary);
+  border-bottom-color: var(--color-secondary);
   cursor: pointer;
 }
 
 .sun {
   position: absolute;
-  top: 2rem;
-  right: 10rem;
+  top: 20px;
+  right: 100px;
 }
 
 .sunPseudo {
-  background: #e98227;
+  background: var(--color-primary);
   position: absolute;
   border-radius: 50px;
-  right: -80px;
-  width: 35px;
-  height: 35px;
-  transition: opacity 1s;
+  right: -75px;
+  width: 30px;
+  height: 30px;
+  transition: opacity 1s, transform 1s;
+}
+.sunPseudo:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.sunPseudo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80%;
+  width: 80%;
+  background-color: #fefefe;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(40px);
+  user-select: none;
+  opacity: 0%;
+}
+
+.sunPseudo:hover::before {
+  opacity: 100%;
 }
 
 .moon {
   position: absolute;
-  top: 3rem;
-  right: 10rem;
+  top: 30px;
+  right: 100px;
 }
 
 .moonPseudo {
   position: absolute;
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   left: -80px;
-  box-shadow: -6px 6px 0 5px #e8e6e3;
+  box-shadow: inset -6px 6px 0 5px var(--color-primary);
   border-radius: 50%;
-  transition: opacity 1s;
+  transition: opacity 1s, transform 1s;
   opacity: 0%;
+}
+.moonPseudo:hover {
+  cursor: pointer;
+  transform: translate(2px, 3px);
+}
+
+.moonPseudo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fefefe;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(40px);
+  user-select: none;
+  opacity: 0%;
+}
+
+.moonPseudo:hover::before {
+  opacity: 100%;
 }
 
 @keyframes arc-out-sun {
@@ -180,7 +276,7 @@ body {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(150deg);
+    transform: rotate(180deg);
   }
 }
 .arc-out-sun {
@@ -192,7 +288,7 @@ body {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(203deg) translateX(10px) translateY(-3px);
+    transform: rotate(203deg);
   }
 }
 .arc-in-moon {
@@ -216,7 +312,7 @@ body {
     transform: rotate(203deg);
   }
   100% {
-    transform: rotate(360deg) translateX(-15px) translateY(5px);
+    transform: rotate(360deg);
   }
 }
 .arc-out-moon {
@@ -225,7 +321,7 @@ body {
 
 @keyframes arc-in-sun {
   0% {
-    transform: rotate(150deg);
+    transform: rotate(180deg);
   }
   100% {
     transform: rotate(360deg);
@@ -243,13 +339,38 @@ body {
   opacity: 0%;
 }
 
-@media only screen and (max-width: 1360px) {
-  html {
-    font-size: 49.5%;
+@keyframes flickerAnimation {
+  0% {
+    border-color: #000;
   }
-  .sun {
-    top: 5rem;
-    right: 15rem;
+  60% {
+    border-color: var(--color-secondary);
+  }
+  65% {
+    border-color: #000;
+  }
+  70% {
+    border-color: var(--color-secondary);
+  }
+  75% {
+    border-color: #000;
+  }
+  100% {
+    border-color: var(--color-secondary);
+  }
+}
+.flicker {
+  animation: flickerAnimation 1s;
+}
+
+@media only screen and (max-width: 1560px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  html {
+    font-size: 40%;
   }
 }
 

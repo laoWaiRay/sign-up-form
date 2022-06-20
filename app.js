@@ -2,7 +2,7 @@
 // $color-dark: rgb(49,52,54);
 // $color-primary: rgb(233, 130, 39);
 
-
+const root = document.documentElement;
 const formLabel = document.querySelectorAll('.form__label');
 const formControl = document.querySelectorAll('.form__control');
 const form = document.querySelector('.form');
@@ -25,6 +25,9 @@ sunPseudo.addEventListener('click', () => {
 
     sunPseudo.classList.toggle('fade-out');
     moonPseudo.classList.toggle('fade-in');
+
+    root.classList.add('night-mode');
+
 })
 
 moonPseudo.addEventListener('click', () => {
@@ -34,12 +37,18 @@ moonPseudo.addEventListener('click', () => {
     sunPseudo.classList.toggle('fade-out');
     moonPseudo.classList.toggle('fade-in');
 
+    root.classList.remove('night-mode');
 
 })
 
 formControl.forEach((control)=>{
     control.addEventListener('focus', (e) => {
-        e.target.previousElementSibling.style.color = '#e98227'
+        if(!root.classList.contains('night-mode')){
+            e.target.previousElementSibling.style.color = '#e98227';
+        } else {
+            e.target.previousElementSibling.style.color = '#4700b3';
+        }
+        
     })
     control.addEventListener('blur', (e) => {
         console.dir(e.target.previousElementSibling.style.color);
