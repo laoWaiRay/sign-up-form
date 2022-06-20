@@ -22,12 +22,19 @@ sunPseudo.addEventListener('click', () => {
         moon.classList.toggle('arc-out-moon');
         sun.classList.toggle('arc-in-sun');
     }
-    
+
+    sunPseudo.classList.toggle('fade-out');
+    moonPseudo.classList.toggle('fade-in');
 })
 
 moonPseudo.addEventListener('click', () => {
     moon.classList.toggle('arc-out-moon');
     sun.classList.toggle('arc-in-sun');
+    
+    sunPseudo.classList.toggle('fade-out');
+    moonPseudo.classList.toggle('fade-in');
+
+
 })
 
 formControl.forEach((control)=>{

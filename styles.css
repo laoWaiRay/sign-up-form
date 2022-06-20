@@ -144,7 +144,7 @@ body {
 
 .sun {
   position: absolute;
-  top: 5rem;
+  top: 2rem;
   right: 10rem;
 }
 
@@ -155,13 +155,13 @@ body {
   right: -80px;
   width: 35px;
   height: 35px;
-  opacity: 50%;
+  transition: opacity 1s;
 }
 
 .moon {
   position: absolute;
-  top: 5rem;
-  right: 13rem;
+  top: 3rem;
+  right: 10rem;
 }
 
 .moonPseudo {
@@ -171,6 +171,8 @@ body {
   left: -80px;
   box-shadow: -6px 6px 0 5px #e8e6e3;
   border-radius: 50%;
+  transition: opacity 1s;
+  opacity: 0%;
 }
 
 @keyframes arc-out-sun {
@@ -233,28 +235,12 @@ body {
   animation: arc-in-sun 2s forwards;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
 .fade-in {
-  animation: fade-in 2s forwards;
+  opacity: 100%;
 }
 
-@keyframes fade-out {
-  0% {
-    opacity: 100%;
-  }
-  100% {
-    opacity: 0%;
-  }
-}
 .fade-out {
-  animation: fade-out 2s forwards;
+  opacity: 0%;
 }
 
 @media only screen and (max-width: 1360px) {
