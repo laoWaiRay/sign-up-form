@@ -1,0 +1,41 @@
+body {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #222A31;
+  }
+  
+  .coin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: transparent;
+    top: 70%;
+    left: 50%;
+    animation: arc 2s forwards;
+    margin: 8px 0 0;
+  }
+  
+  .coin:before {
+    content: '';
+    background: gold;
+    position: absolute;
+    border-radius: 50px;
+    border: 2px solid orange;
+    box-shadow: -1px -1px 1px 1px rgba(255,255,255,0.5);
+    left: -220px;
+    top: 6px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  @keyframes arc {
+    0%{
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+  

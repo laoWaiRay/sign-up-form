@@ -1,6 +1,4 @@
-$color-light: rgb(232,230,227);
-$color-dark: rgb(49,52,54);
-$color-primary: rgb(233, 130, 39);
+@import "variables";
 
 html{
     padding: 0;
@@ -69,21 +67,21 @@ body{
         }
     }
 
-    label{
+    &__label{
         display: block;
         line-height: 1.5;
         margin-bottom: 1.5rem;
         
     }
 
-    input{
+    &__control{
         display: block;
         border: none;
         border-radius: 5px;
         background-color: rgba(34, 34, 34, 0.503);
         border: 1px solid $color-dark;
         font-family: inherit;
-        color: inherit;
+        color: $color-light;
         font-size: inherit;
         width: calc(100% - (1.5rem * 2));
         padding: 1rem 1.5rem;
@@ -106,8 +104,10 @@ body{
         font-size: inherit;
         color: inherit;
         background-color: inherit;
+        outline: none;
 
-        &:hover{
+        &:hover,
+        &:focus{
             border-color: $color-primary;
             color: $color-primary;
             cursor: pointer;
@@ -150,19 +150,162 @@ body{
         text-decoration: none;
         padding-bottom: 5px;
         border-bottom: 2px solid $color-primary;
+        outline: none;
 
+        &:hover,
+        &:focus{
+            color: greenyellow;
+            border-bottom-color: greenyellow;
+            cursor: pointer;
+        }
     }
 }
+
+.sun {
+    position: absolute;
+    top: 5rem;
+    right: 10rem;
+}
+  
+.sunPseudo {
+    background: $color-primary;
+    position: absolute;
+    border-radius: 50px;
+    right: -80px;
+    width: 35px;
+    height: 35px;
+    opacity: 50%;
+}
+
+.moon {
+    position: absolute;
+    top: 5rem;
+    right: 13rem;
+}
+
+.moonPseudo {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    left: -80px;
+    box-shadow: -6px 6px 0 5px $color-light;
+    border-radius: 50%;
+}
+
+
+
+
+  
+@keyframes arc-out-sun {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(150deg);
+    }
+}
+
+.arc-out-sun{
+    animation: arc-out-sun 2s forwards;
+}
+
+
+@keyframes arc-in-moon {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(203deg) translateX(10px) translateY(-3px);
+    }
+}
+
+.arc-in-moon{
+    animation: arc-in-moon 2s forwards;
+}
+
+@keyframes reflect-moon{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+.reflect-moon{
+    animation: reflect-moon 1ms forwards;
+}
+
+
+
+@keyframes arc-out-moon {
+    0%{
+        transform: rotate(203deg);
+    }
+
+    100%{
+        transform: rotate(360deg) translateX(-15px) translateY(5px);
+    }
+}
+
+.arc-out-moon{
+    animation: arc-out-moon 2s forwards;
+}
+
+
+@keyframes arc-in-sun {
+    0%{
+        transform: rotate(150deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.arc-in-sun{
+    animation: arc-in-sun 2s forwards;
+}
+
+
+@keyframes fade-in {
+    0%{
+        opacity: 0%
+    }
+    100%{
+        opacity: 100%
+    }
+}
+
+.fade-in{
+    animation: fade-in 2s forwards;
+}
+
+
+@keyframes fade-out {
+    0%{
+        opacity: 100%
+    }
+    100%{
+        opacity: 0%
+    }
+}
+
+.fade-out{
+    animation: fade-out 2s forwards;
+}
+
+
+
 
 
 @media only screen and (max-width: 1360px){
     html{
         font-size: 49.5%;
     }
-}
 
-@media only screen and (max-width: 1050px){
-    html{
-        font-size: 49.5%;
+    .sun{
+        top: 5rem;
+        right: 15rem;
     }
 }

@@ -25,7 +25,7 @@ body {
   content: "";
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to bottom right, rgb(233, 130, 39), #000);
+  background-image: linear-gradient(to bottom right, #e98227, #000);
   position: absolute;
   top: 0;
   left: 0;
@@ -46,7 +46,7 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   right: 0;
-  color: rgb(232, 230, 227);
+  color: #e8e6e3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,42 +60,43 @@ body {
 .form__group:not(:first-child) {
   margin-top: 2rem;
 }
-.form label {
+.form__label {
   display: block;
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
-.form input {
+.form__control {
   display: block;
   border: none;
   border-radius: 5px;
   background-color: rgba(34, 34, 34, 0.503);
-  border: 1px solid rgb(49, 52, 54);
+  border: 1px solid #313436;
   font-family: inherit;
-  color: inherit;
+  color: #e8e6e3;
   font-size: inherit;
   width: calc(100% - 3rem);
   padding: 1rem 1.5rem;
   outline: none;
 }
-.form input:active, .form input:focus {
-  border-color: rgb(233, 130, 39);
+.form__control:active, .form__control:focus {
+  border-color: #e98227;
 }
 .form .btn-sign-up {
   display: block;
   margin: 0 auto;
   margin-top: 4rem;
-  border: 1px solid rgb(49, 52, 54);
+  border: 1px solid #313436;
   padding: 1.5rem;
   border-radius: 5px;
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   background-color: inherit;
+  outline: none;
 }
-.form .btn-sign-up:hover {
-  border-color: rgb(233, 130, 39);
-  color: rgb(233, 130, 39);
+.form .btn-sign-up:hover, .form .btn-sign-up:focus {
+  border-color: #e98227;
+  color: #e98227;
   cursor: pointer;
 }
 
@@ -114,7 +115,7 @@ body {
   margin-left: 1px;
 }
 .header__primary:hover {
-  color: rgb(233, 130, 39);
+  color: #e98227;
 }
 .header__secondary {
   width: 100%;
@@ -129,20 +130,140 @@ body {
   font-size: 1.3rem;
 }
 .log-in-message .sign-in-link {
-  color: rgb(233, 130, 39);
+  color: #e98227;
   text-decoration: none;
   padding-bottom: 5px;
-  border-bottom: 2px solid rgb(233, 130, 39);
+  border-bottom: 2px solid #e98227;
+  outline: none;
+}
+.log-in-message .sign-in-link:hover, .log-in-message .sign-in-link:focus {
+  color: greenyellow;
+  border-bottom-color: greenyellow;
+  cursor: pointer;
+}
+
+.sun {
+  position: absolute;
+  top: 5rem;
+  right: 10rem;
+}
+
+.sunPseudo {
+  background: #e98227;
+  position: absolute;
+  border-radius: 50px;
+  right: -80px;
+  width: 35px;
+  height: 35px;
+  opacity: 50%;
+}
+
+.moon {
+  position: absolute;
+  top: 5rem;
+  right: 13rem;
+}
+
+.moonPseudo {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  left: -80px;
+  box-shadow: -6px 6px 0 5px #e8e6e3;
+  border-radius: 50%;
+}
+
+@keyframes arc-out-sun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}
+.arc-out-sun {
+  animation: arc-out-sun 2s forwards;
+}
+
+@keyframes arc-in-moon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(203deg) translateX(10px) translateY(-3px);
+  }
+}
+.arc-in-moon {
+  animation: arc-in-moon 2s forwards;
+}
+
+@keyframes reflect-moon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.reflect-moon {
+  animation: reflect-moon 1ms forwards;
+}
+
+@keyframes arc-out-moon {
+  0% {
+    transform: rotate(203deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(-15px) translateY(5px);
+  }
+}
+.arc-out-moon {
+  animation: arc-out-moon 2s forwards;
+}
+
+@keyframes arc-in-sun {
+  0% {
+    transform: rotate(150deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.arc-in-sun {
+  animation: arc-in-sun 2s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.fade-in {
+  animation: fade-in 2s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+.fade-out {
+  animation: fade-out 2s forwards;
 }
 
 @media only screen and (max-width: 1360px) {
   html {
     font-size: 49.5%;
   }
-}
-@media only screen and (max-width: 1050px) {
-  html {
-    font-size: 49.5%;
+  .sun {
+    top: 5rem;
+    right: 15rem;
   }
 }
 

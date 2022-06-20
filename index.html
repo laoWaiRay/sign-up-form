@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d49ac88477.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,33 +16,41 @@
         <video class="hero__video" src="Pixel_Bikers.mp4" autoplay muted loop></video>
     </div>
     <main class="content">
+
+        <div class="toggler sun">
+            <div class="sunPseudo"></div>
+        </div>
+        <div class="toggler moon">
+            <div class="moonPseudo"></div>
+        </div>
+
         <h1 class="header">
             <div class="header__primary">New Game+</div>
             <div class="header__secondary">Welcome to Neo-Van City</div>
         </h1>
         <form action="#" class="form">
             <div class="form__group">
-                <label for="name" class="form-label">Enter your name:</label>
-                <input type="text" class="form-control" id="name">
+                <label for="name" class="form__label form__label--name">Enter your name:</label>
+                <input type="text" class="form__control" id="name">
             </div>
             <div class="form__group">
-                <label for="password" class="form-label">Enter your password:</label>
-                <input type="password" class="form-control" id="password">
+                <label for="password" class="form__label form__label--password1">Enter your password:</label>
+                <input type="password" class="form__control" id="password1">
             </div>
             <div class="form__group">
-                <label for="password" class="form-label">Re-enter your password:</label>
-                <input type="password" class="form-control" id="password">
+                <label for="password" class="form__label form__label--password2">Re-enter your password:</label>
+                <input type="password" class="form__control" id="password2">
             </div>
             <div class="form__group">
-                <label for="email" class="form-label">Enter your email:</label>
-                <input type="email" class="form-control" id="email">
+                <label for="email" class="form__label form__label--email">Enter your email:</label>
+                <input type="email" class="form__control" id="email">
             </div>
             <button class="btn-sign-up">Sign Up</button>
             <div class="log-in-message">Already signed up? <a href="" class="sign-in-link">Sign In</a></div>
         </form>
     </main>
 
-
+    
     <script src="app.js"></script>
 </body>
 </html>
