@@ -1,4 +1,27 @@
 @import "variables";
+  
+//   body {
+//     background-color: var(--color-base-bg);
+//     color: var(--color-base-text);
+//     padding: 10px;
+//   }
+
+// autofill snippet from CSSTricks.com
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 :root{
     --color-primary: #e98227;
@@ -19,7 +42,12 @@
         animation: flickerAnimation 2s 1s steps(6, jump-both) forwards;
     }
 
-    .form, .header{
+    .header{
+        color: #000;
+        animation: flickerAnimation 2s 1s steps(6, jump-both) forwards;
+    }
+
+    .form{
         color: $color-secondary;
     }
 
@@ -46,6 +74,18 @@
         &:active,
         &:focus{
             border-color: $color-primary;
+        }
+    }
+
+    .legal__name{
+        color: $color-secondary;
+    }
+
+    .odinLogo__img{
+        display: none;
+
+        &--dark{
+            display: block;
         }
     }
 }
@@ -163,10 +203,14 @@ body{
         outline: none;
 
         &:hover,
-        &:focus{
+        &:active{
             border-color: $color-primary;
             color: $color-primary;
             cursor: pointer;
+        }
+
+        &:active{
+            transform: translateY(1px);
         }
     }
 }
@@ -301,6 +345,36 @@ body{
 }
 
 
+.legal{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    color: $color-light;
+
+    &__name{
+        color: $color-primary;
+    }
+}
+
+.odinLogo__img{
+    z-index: 1;
+    width: 20rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    // display: none;
+}
+
+.odinLogo__img--dark{
+    z-index: 2;
+    width: 20rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: none;
+    transform: scale(110%);
+}
 
 
   
@@ -384,12 +458,12 @@ body{
 }
 
 @keyframes flickerAnimation {
-    0% { border-color: #000; }
-    60% { border-color: $color-secondary; }
-    65% { border-color: #000; }
-    70% { border-color: $color-secondary; }
-    75% { border-color: #000; }
-    100% { border-color: $color-secondary; }
+    0% { border-color: #000; color: #000;}
+    60% { border-color: $color-secondary; color: $color-secondary;}
+    65% { border-color: #000; color: #000;}
+    70% { border-color: $color-secondary; color: $color-secondary;}
+    75% { border-color: #000; color: #000;}
+    100% { border-color: $color-secondary; color: $color-secondary;}
 }
 
 .flicker{
@@ -397,14 +471,6 @@ body{
 }
 
 
-
-
-// @media only screen and (max-width: 1360px){
-//     html{
-//         font-size: 44.5%;
-//     }
-
-// }
 @media only screen and (max-width: 1560px){
     html{
         font-size: 50%;
@@ -417,15 +483,48 @@ body{
     }
 }
 
-// @media only screen and (max-width: 1500px){
-//     html{
-//         font-size: 39.5%;
-//     }
+@media only screen and (max-width: 930px){
+    html{
+        font-size: 56.5%;
+    }
 
-//     .sun{
-//         top: 5rem;
-//         right: 15rem;
-//     }
-// }
+    .hero{
+        height: 100vh;
+        min-height: 100vh;
+        min-width: 0vw;
+    }
 
+    .content{
+        width: 100vw;
+    }
+
+    .panel{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header{
+        margin-left: 2.5rem;
+        text-align: center;
+        
+        &__primary{
+            font-size: 4.5rem;
+        }
+        &__secondary{
+            font-size: 1.5rem;
+        }
+    }
+
+    .content{
+        // top: 4vh;
+        height: 95vh;
+    }
+
+    .odinLogo{
+        z-index: 1;
+    }
+
+}
 

@@ -1,3 +1,18 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 :root {
   --color-primary: #e98227;
   --color-secondary: #33ff00;
@@ -15,7 +30,11 @@
   border-color: #000;
   animation: flickerAnimation 2s 1s steps(6, jump-both) forwards;
 }
-:root.night-mode .form, :root.night-mode .header {
+:root.night-mode .header {
+  color: #000;
+  animation: flickerAnimation 2s 1s steps(6, jump-both) forwards;
+}
+:root.night-mode .form {
   color: var(--color-secondary);
 }
 :root.night-mode .sign-in-link {
@@ -38,6 +57,15 @@
 }
 :root.night-mode .form__control:active, :root.night-mode .form__control:focus {
   border-color: var(--color-primary);
+}
+:root.night-mode .legal__name {
+  color: var(--color-secondary);
+}
+:root.night-mode .odinLogo__img {
+  display: none;
+}
+:root.night-mode .odinLogo__img--dark {
+  display: block;
 }
 
 html {
@@ -142,10 +170,13 @@ body {
   background-color: inherit;
   outline: none;
 }
-.form .btn-sign-up:hover, .form .btn-sign-up:focus {
+.form .btn-sign-up:hover, .form .btn-sign-up:active {
   border-color: var(--color-primary);
   color: var(--color-primary);
   cursor: pointer;
+}
+.form .btn-sign-up:active {
+  transform: translateY(1px);
 }
 
 .header {
@@ -271,6 +302,35 @@ body {
   opacity: 100%;
 }
 
+.legal {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-light);
+}
+.legal__name {
+  color: var(--color-primary);
+}
+
+.odinLogo__img {
+  z-index: 1;
+  width: 20rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.odinLogo__img--dark {
+  z-index: 2;
+  width: 20rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: none;
+  transform: scale(110%);
+}
+
 @keyframes arc-out-sun {
   0% {
     transform: rotate(0deg);
@@ -342,21 +402,27 @@ body {
 @keyframes flickerAnimation {
   0% {
     border-color: #000;
+    color: #000;
   }
   60% {
     border-color: var(--color-secondary);
+    color: var(--color-secondary);
   }
   65% {
     border-color: #000;
+    color: #000;
   }
   70% {
     border-color: var(--color-secondary);
+    color: var(--color-secondary);
   }
   75% {
     border-color: #000;
+    color: #000;
   }
   100% {
     border-color: var(--color-secondary);
+    color: var(--color-secondary);
   }
 }
 .flicker {
@@ -371,6 +437,41 @@ body {
 @media only screen and (max-width: 1160px) {
   html {
     font-size: 40%;
+  }
+}
+@media only screen and (max-width: 930px) {
+  html {
+    font-size: 56.5%;
+  }
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 0vw;
+  }
+  .content {
+    width: 100vw;
+  }
+  .panel {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    margin-left: 2.5rem;
+    text-align: center;
+  }
+  .header__primary {
+    font-size: 4.5rem;
+  }
+  .header__secondary {
+    font-size: 1.5rem;
+  }
+  .content {
+    height: 95vh;
+  }
+  .odinLogo {
+    z-index: 1;
   }
 }
 
